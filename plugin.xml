@@ -14,7 +14,7 @@
   </engines>
 
   <js-module src="www/gapp_track.js" name="GoogleAppTracking">
-    <clobbers target="GoogleAppTracking" />
+    <clobbers target="GAPPtracker" />
   </js-module>
 
 
