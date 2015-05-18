@@ -10,11 +10,11 @@
   <keywords>google,install,conversion,tracking</keywords>
 
   <engines>
-    <engine name="cordova" version="&gt;=3.2.0" />
+    <engine name="cordova" version=">=3.4.0" />
   </engines>
 
   <js-module src="www/gapp_track.js" name="GoogleAppTracking">
-    <clobbers target="GoogleAppTracking" />
+    <clobbers target="GAPPtracker" />
   </js-module>
 
 
