@@ -28,8 +28,8 @@ public class GoogleAppTracking extends CordovaPlugin {
   private void track(String conversion_id, String tracking_label, String tracking_value, Boolean repeatable, CallbackContext callbackContext) {
 
     try {
-      // see: https://developers.google.com/app-conversion-tracking/docs/android-conversion-tracking
-      GoogleConversionPing.recordConversionPing(
+      // see: https://developers.google.com/app-conversion-tracking/android
+      AdWordsConversionReporter.reportWithConversionId(
           this.cordova.getActivity().getApplicationContext(),
           conversion_id,
           tracking_label,
