@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
   xmlns:android="http://schemas.android.com/apk/res/android"
-  id="com.myhealthteams.plugins.GoogleAppTracking" version="0.0.1">
+  id="cordova-plugin-google-app-conversion-tracker" version="0.0.1">
 
   <name>GoogleAppTracking</name>
   <description>Cordova Plugin for Google App Install Conversion Tracking</description>
@@ -10,11 +10,11 @@
   <keywords>google,install,conversion,tracking</keywords>
 
   <engines>
-    <engine name="cordova" version="&gt;=3.2.0" />
+    <engine name="cordova" version=">=3.4.0" />
   </engines>
 
   <js-module src="www/gapp_track.js" name="GoogleAppTracking">
-    <clobbers target="GoogleAppTracking" />
+    <clobbers target="GAPPtracker" />
   </js-module>
 
 
@@ -25,10 +25,12 @@
       </feature>
     </config-file>
 
-    <header-file src="src/ios/GoogleConversionPing.h" />
+    <header-file src="src/ios/ACTReporter.h" />
     <header-file src="src/ios/GoogleAppTracking.h" />
     <source-file src="src/ios/GoogleAppTracking.m" />
     <source-file src="lib/ios/libGoogleConversionTracking.a" framework="true"/>
+
+    <framework src="AdSupport.framework" />
   </platform>
 
   <platform name="android">
@@ -53,7 +55,7 @@
     </config-file>
 
     <source-file src="src/android/GoogleAppTracking.java" target-dir="src/com/myhealthteams/plugins" />
-    <source-file src="lib/android/GoogleConversionTrackingSdk-1.1.0.jar" target-dir="libs" />
+    <source-file src="lib/android/GoogleConversionTrackingSdk-2.2.2.jar" target-dir="libs" />
   </platform>
 
 </plugin>
