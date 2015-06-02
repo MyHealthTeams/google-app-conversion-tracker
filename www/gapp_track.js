@@ -1,14 +1,10 @@
-(function(){
 
-  function GAPPtracker() {}
+/* global module, require */
 
-  GAPPtracker.prototype.track = function(conversion_id, label, value, repeatable, success, fail) {
-    cordova.exec(success, fail, "GoogleAppTracking", "track", [conversion_id, label, value, repeatable]);
-  };
+var exec = require('cordova/exec');
 
-  window.GAPPtracker = new GAPPtracker();
-  window.plugins = window.plugins || {};
-  window.plugins.gapptracker = window.GAPPtracker;
-
-})();
-
+module.exports = {
+  track: function(conversionId, label, value, repeatable, success, fail) {
+    exec(success, fail, 'GoogleAppTracking', 'track', [conversionId, label, value, repeatable]);
+  }
+};
