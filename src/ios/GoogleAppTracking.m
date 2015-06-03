@@ -16,7 +16,7 @@
     [self.commandDelegate runInBackground:^{
 
       // see: https://developers.google.com/app-conversion-tracking/
-      [ACTConversionReporter reportWithConversionId:conversion_id label:tracking_label value:tracking_value isRepeatable:repeatable];
+      [ACTConversionReporter reportWithConversionID:conversion_id label:tracking_label value:tracking_value isRepeatable:repeatable];
 
       CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
       [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
