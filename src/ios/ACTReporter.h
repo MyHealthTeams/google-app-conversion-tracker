@@ -22,15 +22,20 @@
 /// String representation of conversion value. Example: @"3.99".
 @property(nonatomic, copy) NSString *value;
 
+/// String representation of three-letter ISO 4217 currency code. Example: @"USD".
+@property(nonatomic, copy) NSString *currencyCode;
+
 /// Reports conversion information to Google.
 + (void)reportWithConversionID:(NSString *)conversionID
                          label:(NSString *)label
                          value:(NSString *)value
+                  currencyCode:(NSString *)currencyCode
                   isRepeatable:(BOOL)isRepeatable;
 
 /// Reports an In-App Purchase (IAP) to Google.
 + (void)reportWithProductID:(NSString *)productID
                       value:(NSString *)value
+               currencyCode:(NSString *)currencyCode
                isRepeatable:(BOOL)isRepeatable;
 
 /// Register a click referrer from a Google ad click URL. Returns YES if the URL was registered
@@ -42,12 +47,14 @@
 - (instancetype)initWithConversionID:(NSString *)conversionID
                                label:(NSString *)label
                                value:(NSString *)value
+                        currencyCode:(NSString *)currencyCode
                         isRepeatable:(BOOL)isRepeatable;
 
 /// Returns an initialized conversion ACTConversionReporter object for In-App Purchase reporting.
 /// Use this method to separate conversion tracker initialization and reporting.
 - (instancetype)initWithProductID:(NSString *)productID
                             value:(NSString *)value
+                     currencyCode:(NSString *)currencyCode
                      isRepeatable:(BOOL)isRepeatable;
 
 @end
@@ -74,5 +81,33 @@
 
 /// Call this method to disable usage reporting for the provided conversion ID.
 + (void)disableAutomatedUsageReportingWithConversionID:(NSString *)conversionID;
+
+@end
+
+#pragma mark - Deprecated API
+
+@interface ACTConversionReporter (Deprecated)
+
++ (void)reportWithConversionID:(NSString *)conversionID
+                         label:(NSString *)label
+                         value:(NSString *)value
+                  isRepeatable:(BOOL)isRepeatable
+    DEPRECATED_MSG_ATTRIBUTE("Use reportWithConversionID:label:value:currencyCode:isRepeatable");
+
++ (void)reportWithProductID:(NSString *)productID
+                      value:(NSString *)value
+               isRepeatable:(BOOL)isRepeatable
+    DEPRECATED_MSG_ATTRIBUTE("Use reportWithProductID:value:currencyCode:isRepeatable");
+
+- (instancetype)initWithConversionID:(NSString *)conversionID
+                               label:(NSString *)label
+                               value:(NSString *)value
+                        isRepeatable:(BOOL)isRepeatable
+    DEPRECATED_MSG_ATTRIBUTE("Use initWithConversionID:label:value:currencyCode:isRepeatable");
+
+- (instancetype)initWithProductID:(NSString *)productID
+                            value:(NSString *)value
+                     isRepeatable:(BOOL)isRepeatable
+    DEPRECATED_MSG_ATTRIBUTE("Use initWithProductID:value:currencyCode:isRepeatable");
 
 @end
