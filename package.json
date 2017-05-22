@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "Cordova Plugin for Google App Install Conversion Tracking",
   "cordova": {
-    "id": "com.synconset.imagepicker",
+    "id": "com.test.google-app-conversion-tracker",
     "platforms": [
       "ios",
       "android"
