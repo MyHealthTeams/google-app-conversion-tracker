@@ -1,0 +1,33 @@
+{
+  "name": "GoogleAppTracking",
+  "version": "0.0.2",
+  "description": "Cordova Plugin for Google App Install Conversion Tracking",
+  "cordova": {
+    "id": "com.test.google-app-conversion-tracker",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VivreTech/google-app-conversion-tracker.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.5.0"
+    }
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VivreTech/google-app-conversion-tracker/issues"
+  },
+  "homepage": "https://github.com/VivreTech/google-app-conversion-tracker#readme"
+}
