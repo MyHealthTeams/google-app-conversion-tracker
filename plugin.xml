@@ -10,7 +10,9 @@
   <keywords>google,install,conversion,tracking</keywords>
 
   <engines>
-    <engine name="cordova" version=">=3.4.0" />
+    <engine name="cordova" version=">=7.1.0" />
+    <engine name="cordova-android" version=">=7.0.0" />
+    <engine name="cordova-ios" version=">=4.5.4" />
   </engines>
 
   <js-module src="www/gapp_track.js" name="GoogleAppTracking">
@@ -39,19 +41,19 @@
       </feature>
     </config-file>
 
-    <config-file target="AndroidManifest.xml" parent="/*">
+    <edit-config file="app/src/main/AndroidManifest.xml" target="/*" mode="merge">
       <uses-permission android:name="android.permission.INTERNET" />
       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    </config-file>
+    </edit-config>
 
-    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+    <edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application" mode="merge">
       <receiver android:name="com.google.ads.conversiontracking.InstallReceiver"
         android:exported="true">
         <intent-filter>
           <action android:name="com.android.vending.INSTALL_REFERRER" />
         </intent-filter>
       </receiver>
-    </config-file>
+    </edit-config>
 
     <source-file src="src/android/GoogleAppTracking.java" target-dir="src/com/myhealthteams/plugins" />
     <source-file src="lib/android/GoogleConversionTrackingSdk-2.2.2.jar" target-dir="libs" />
