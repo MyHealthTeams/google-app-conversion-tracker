@@ -11,14 +11,13 @@
 
   <engines>
     <engine name="cordova" version=">=7.1.0" />
-    <engine name="cordova-android" version=">=7.0.0" />
+    <engine name="cordova-android" version=">=6.4.0" />
     <engine name="cordova-ios" version=">=4.5.4" />
   </engines>
 
   <js-module src="www/gapp_track.js" name="GoogleAppTracking">
     <clobbers target="GappTrack" />
   </js-module>
-
 
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
@@ -41,19 +40,19 @@
       </feature>
     </config-file>
 
-    <edit-config file="app/src/main/AndroidManifest.xml" target="/*" mode="merge">
+    <config-file target="AndroidManifest.xml" parent="/*">
       <uses-permission android:name="android.permission.INTERNET" />
       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    </edit-config>
+    </config-file>
 
-    <edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application" mode="merge">
+    <config-file target="AndroidManifest.xml" parent="/*/application">
       <receiver android:name="com.google.ads.conversiontracking.InstallReceiver"
         android:exported="true">
         <intent-filter>
           <action android:name="com.android.vending.INSTALL_REFERRER" />
         </intent-filter>
       </receiver>
-    </edit-config>
+    </config-file>
 
     <source-file src="src/android/GoogleAppTracking.java" target-dir="src/com/myhealthteams/plugins" />
     <source-file src="lib/android/GoogleConversionTrackingSdk-2.2.2.jar" target-dir="libs" />
