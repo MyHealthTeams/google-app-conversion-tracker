@@ -10,7 +10,9 @@
   <keywords>google,install,conversion,tracking</keywords>
 
   <engines>
-    <engine name="cordova" version=">=3.4.0" />
+    <engine name="cordova" version=">=7.1.0" />
+    <engine name="cordova-android" version=">=6.4.0" />
+    <engine name="cordova-ios" version=">=4.5.4" />
   </engines>
 
   <js-module src="www/gapp_track.js" name="GoogleAppTracking">
@@ -44,7 +46,7 @@
       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     </config-file>
 
-    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+    <config-file target="AndroidManifest.xml" parent="/*/application">
       <receiver android:name="com.google.ads.conversiontracking.InstallReceiver"
         android:exported="true">
         <intent-filter>
