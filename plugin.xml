@@ -19,7 +19,6 @@
     <clobbers target="GappTrack" />
   </js-module>
 
-
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
       <feature name="GoogleAppTracking">
